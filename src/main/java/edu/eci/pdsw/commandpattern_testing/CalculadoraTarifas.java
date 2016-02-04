@@ -22,17 +22,17 @@ import org.joda.time.Days;
 public class CalculadoraTarifas {
 
     /**
-     * calcular la tarifa de cada billete según el trayecto, la antelacion en la
+     * calcular la tarifa de cada billete segun el trayecto, la antelacion en la
      * que se obtiene el billete y la edad del pasajero, de acuerdo con la
      * normativa 005:
      * 
      * 	Normativa 005, sobre los descuentos:
      *   15% de descuento sacando el billete con antelacion superior a 1 semana 
-     *    y 25% con antelacion superior a 1 mes (30 días). 
+     *    y 25% con antelacion superior a 1 mes (30 dias). 
      *   30% a los pasajeros con edad inferior a 25 anos y 40% a los pasajeros 
-     *    con edad superior a 65 años.
+     *    con edad superior a 65 anos.
      * 
-     *  Los descuentos no son acumulables y siempre se aplicará el de mayor 
+     *  Los descuentos no son acumulables y siempre se aplicara el de mayor 
      *  valor.
      *
      * @param tarifaBase valor base del vuelo
