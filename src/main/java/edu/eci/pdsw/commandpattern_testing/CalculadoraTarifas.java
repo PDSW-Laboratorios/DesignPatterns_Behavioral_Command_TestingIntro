@@ -43,7 +43,7 @@ public class CalculadoraTarifas {
      * @throws ExcepcionParametrosInvalidos [XXXXXXXXXXXXXXXXXXXXXXXXXXX]
  *
      */
-    public float calculoTarifa(float tarifaBase, DateTime fechaActual, DateTime fechaVuelo, int edad) {
+    public float calculoTarifa(float tarifaBase, DateTime fechaActual, DateTime fechaVuelo, int edad) throws ExcepcionParametrosInvalidos{
         
         return 0f;
         
