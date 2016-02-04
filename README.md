@@ -56,9 +56,9 @@ __Parte II.a.__ (Para revisar en clase)
 ![aa](img/BaseModel.png)
 
 2. Para cada Comando concreto identificado, haga el análisis de clases de equivalencia y condiciones de frontera de sus métodos 'execute()' y 'undo()'.
-3. Entregar en clase impreso: Modelo de clases y listado de las clases de equivalencia.
+3. Entregar en clase impreso: Modelo de clases y listado de las clases de equivalencia, detallando cuales son positivas, negativas y de frontera.
 
-__Parte II.b.__ 
+__Parte II.b.__ (Para el Jueves)
 
 1. Implemente los CASCARONES de los comandos (es decir, cree las clases, haga la especificación de los métodos, pero NO implemente los métodos).
 
