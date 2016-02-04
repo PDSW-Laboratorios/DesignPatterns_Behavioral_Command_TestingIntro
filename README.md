@@ -55,7 +55,8 @@ __Parte II.a.__ (Para revisar en clase)
 
 ![aa](img/BaseModel.png)
 
-2. Para cada Comando concreto identificado, haga el análisis de clases de equivalencia y condiciones de frontera para su funcionalidad definida.
+2. Para cada Comando concreto identificado, haga el análisis de clases de equivalencia y condiciones de frontera de sus métodos 'execute()' y 'undo()'.
+3. Entregar en clase impreso: Modelo de clases y listado de las clases de equivalencia.
 
 __Parte II.b.__ 
 
