@@ -97,5 +97,10 @@ Tenga en cuenta que para lograr esta funcionalidad se requiere:
 3. Mantener, con un esquema de pilas, tanto la secuencia de comandos ejecutada, como la secuencia de comandos 'deshecha', de manera que las operaciones de 'deshacer' y 'rehacer' se hagan en un orden lógico.
 
 
+Nota: Para comprimir el avance en un archivo .zip, use el comando (dentro del directorio que va a comprimir):
 
 
+```bash		
+	zip proyectxx.zip * .*
+```			
+(hay un espacio entre * y .*, esto es para incluír archivos ocultos).
