@@ -6,9 +6,9 @@ __Taller - diseño de pruebas: clases de equivalencia, condiciones de frontera, 
 
 Entregables: 
 
-Parte I, en clase.
-Parte II (clases de equivalenci y diseño). El martes clase.
-Parrte II (implementado). Antes del próximo laboratorio.
+* Parte I, en clase.
+* Parte II (clases de equivalenci y diseño). El martes clase.
+* Parrte II (implementado). Antes del próximo laboratorio.
 
 ###Parte I
 
