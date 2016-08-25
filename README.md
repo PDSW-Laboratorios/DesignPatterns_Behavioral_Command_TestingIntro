@@ -36,61 +36,60 @@ mvn cobertura:cobertura
 
 
 
-__Parte II.__
+###Parte II.
+####Parte A.
 
-En este ejercicio se va a retomar el caso del 'procesador de palabras' de los ejercicios anteriores. 
 
-Se requiere que el procesador de palabras ahora soporte las opciones de rehacer/deshacer, en la medida que se escribe. Específicamente, se espera el siguiente comportamiento:
+En este ejercicio, va a agregar un par de requerimientos funcionales a una herramienta de dibujo tipo CAD, siguiendo un esquema TDD (Test-Driven development). En la evaluación se revisará que efectivamente se hayan hecho las pruebas antes de la implementación.
 
-- Durante la escritura normal al deshacer, se borrarán los últimos 5 caracteres escritos.
-- Cada eliminación de caracteres (con backspace) debe poderse deshacer (es decir, debe reaparecer el caracter borrado).
-- Se debe tener en cuenta que al momento de deshacer, el cursor (caret) puede estar en una posición difernete a la que se realizó la operación, de manera que el texto debe aparecer o desaparecer (según corresponda) en su posición original.
-- Si se oprime el back-space después de tener una área del texto seleccionada, el 'deshacer' de esta acción debería recuperar todo el texto escrito.
+1. Clone el siguiente proyecto (use el siguiente comando, NO lo descargue directamente de la página!).
 
-Para hacer esto, realice lo siguiente:
+	```bash
+git clone https://github.com/PDSW-ECI/GoF-Testing-BehavioralPatterns-CADTool.git
+```
 
-__Parte II.a.__ (Para revisar en clase)
+2. Importe el proyecto y revise su funcionalidad. Como observará, la opción 'espejo' (mirror) no está implementada aún. Esta función permite hacer una imágen espejo de lo que esté en la parte izquierda de la pantalla, al lado derecho de la misma (las figuras que estén en ambos lados a la vez, no se incluirán). Por ejemplo:
+ 
+	![](img/ejemplocad.png)
 
-1. Aplique el patrón comando, siguiendo el siguiente esquema. Identifique el número y tipo de los comandos concretos que se requerirían para lo antes planteado.
+	Revise la especificación del método 'mirror' y a partir del mismo haga lo siguiente:
+	
+	* Defina las clases de equivalencia para las posibles entradas de este método. Ponga el detalle de estas clases, a manera de comentarios, en la clase de pruebas ControllerTest.
+	* Seleccione un caso por cada clase de equivalencia e implemente las respectivas pruebas en ControllerTest.
+	* Cuando haya hecho lo anterior, ejecute:
+	
+		```bash		
+			git add .			
+			git commit -m "primera versión de las pruebas"
+			
+		```		
+	* Haga la implementación del método 'mirror', y apoyese en las pruebas (mvn test), para verificar la funcionalidad del mismo.
+	* Una vez tenga la funcionalidad deseada, realice las pruebas de cubrimiento para rectificar que las pruebas están contemplando todos los caminos/condiciones del método implementado.
+	* Una vez se tenga la funcionalidad implementada, haga un nuevo commit:
+	
+		```bash		
+			git add .			
+			git commit -m "funcionalidad mirror implementada"
+			
+		```		
 
-![aa](img/BaseModel.png)
 
-2. Para cada Comando concreto identificado, haga el análisis de clases de equivalencia y condiciones de frontera de sus métodos 'execute()' y 'undo()'.
-3. Entregar en clase impreso: Modelo de clases y listado de las clases de equivalencia, detallando cuales son positivas, negativas y de frontera.
+####Parte B.
 
-__Parte II.b.__ (Para el Jueves)
+Otra funcionalidad faltante es la opción de 'deshacer' / 'rehacer'. Para esto, aplique el patrón Comando (ver referencia dada en la programación de lecturas).
 
-1. Implemente los CASCARONES de los comandos (es decir, cree las clases, haga la especificación de los métodos, pero NO implemente los métodos).
+Tenga en cuenta que para lograr esta funcionalidad se requiere:
 
-2. Implemente las pruebas a partir de las clases de equivalencia identificadas, siguiendo el esquema de la parte I.
+1. Encapsular en 'Comandos' las funcionalidades de:
 
-3. Implemente los comandos, y haga uso de las pruebas (mvn test) para verificar que la implementación sea correcta.
+	* Dibujar una figura
+	* Duplicar
+	* Generar imágen espejo
 
-__Tips.__
+2. Embeber en dichos comandos las respectivas operaciones inversas. Por ejemplo, el inverso de dibujar una figura es eliminarla, mientras que el inverso de duplicar, será borrar todas las figuras adicionales creadas.
 
-* Para interceptar los eventos de teclado, puede hacer uso de un 'KeyListener', asociado al área de texto. Tenga también en cuenta que el objeto KeyEvent permite indentificar específicamente qué tecla ha sido presionada.
+3. Mantener, con un esquema de pilas, tanto la secuencia de comandos ejecutada, como la secuencia de comandos 'deshecha', de manera que las operaciones de 'deshacer' y 'rehacer' se hagan en un orden lógico.
 
-	```java
-        textArea.addKeyListener(new KeyListener() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                ...
-            }
 
-            @Override
-            public void keyTyped(KeyEvent e) {
-	            	...
-            }
 
-            @Override
-            public void keyReleased(KeyEvent e) {
-            		...
-            }
-        });
-	```
-* Tenga en cuenta el API de [JTextArea](https://docs.oracle.com/javase/7/docs/api/javax/swing/JTextArea.html), y funciones que permiten manipular programáticamente su contenido, tales como:
 
-	* insert
-	* replaceRange
-	* getCaretPosition
-	* getSelectedText
