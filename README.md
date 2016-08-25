@@ -4,7 +4,13 @@
 
 __Taller - diseño de pruebas: clases de equivalencia, condiciones de frontera, análisis de transiciones.__
 
-__Parte I__
+Entregables: 
+
+Parte I, en clase.
+Parte II (clases de equivalenci y diseño). El martes clase.
+Parrte II (implementado). Antes del próximo laboratorio.
+
+###Parte I
 
 1. Descargue e importe el proyecto.
 2. Revise cómo es la estructura de Maven para separar las pruebas de los demás artefactos del proyecto: src/main, src/test.
