@@ -101,6 +101,6 @@ Nota: Para comprimir el avance en un archivo .zip, use el comando (dentro del di
 
 
 ```bash		
-	zip proyectxx.zip * .*
+	zip -r proyectxx.zip * .*
 ```			
 (hay un espacio entre * y .*, esto es para incluír archivos ocultos).
