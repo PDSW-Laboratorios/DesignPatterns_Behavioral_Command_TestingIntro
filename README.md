@@ -109,7 +109,8 @@ Nota: Para comprimir el avance en un archivo .zip, use el comando (dentro del di
 ###Criterios de evaluación
 
 Parte I.
-	* Se modificó el código hecho pro el 'programador poco confiable', corrigiendo el error existente en el mismo.
+
+* Se modificó el código hecho pro el 'programador poco confiable', corrigiendo el error existente en el mismo.
 
 Parte II.
 
