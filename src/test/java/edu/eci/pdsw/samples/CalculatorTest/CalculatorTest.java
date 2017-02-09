@@ -46,7 +46,7 @@ public class CalculatorTest {
         Assert.assertEquals("La tarifa no tiene un descuento del 25% cuando deberia darlo.", 
                 new Float(1000*0.75), 
                 new Float(ct.calculoTarifa(1000f, new DateTime(2015, 1, 12, 0, 0), 
-                        new DateTime(2015, 1, 20, 0, 0), 30)));
+                        new DateTime(2015, 3, 20, 0, 0), 30)));
     }
     
     /**

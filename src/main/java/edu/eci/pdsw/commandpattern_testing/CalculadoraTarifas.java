@@ -44,26 +44,40 @@ public class CalculadoraTarifas {
  *
      */
     public float calculoTarifa(float tarifaBase, DateTime fechaActual, DateTime fechaVuelo, int edad) throws ExcepcionParametrosInvalidos{
-        float descuentoTarifaBaseFecha=tarifaBase;
-        float descuentoTarifaBaseEdad=tarifaBase;
+        float descuentoTarifaBaseFecha = tarifaBase;
+        float descuentoTarifaBaseEdad = tarifaBase;
         
-        if (Days.daysBetween(fechaActual, fechaVuelo).getDays()>7){
-            descuentoTarifaBaseFecha=tarifaBase-(tarifaBase*0.15f);
+        if (tarifaBase <= 0) {
+            throw new ExcepcionParametrosInvalidos("La tarifa es invalida");
         }
-        else if(Days.daysBetween(fechaActual, fechaVuelo).getDays()>30){
-            descuentoTarifaBaseFecha=tarifaBase-(tarifaBase*0.25f);
-        }        
-        else if (edad<25){
-            descuentoTarifaBaseEdad=tarifaBase-(tarifaBase*0.3f);
+        
+        if (fechaActual == null || fechaVuelo == null) {
+            throw new ExcepcionParametrosInvalidos("La fecha actual o la fecha de vuelo se recibio como parametro null");
         }
-        else if (edad <25 && edad>65){
-            descuentoTarifaBaseEdad=tarifaBase-(tarifaBase*0.4f);
+        
+        if (fechaActual.isAfter(fechaVuelo)) {
+            throw new ExcepcionParametrosInvalidos("La fecha actual es despues de la fecha de vuelo");
+        }
+        
+        if (edad < 0) {
+            throw new ExcepcionParametrosInvalidos("La edad del pasajero es invalida");
+        }
+        
+        if (Days.daysBetween(fechaActual, fechaVuelo).getDays() > 30){
+            descuentoTarifaBaseFecha = tarifaBase*.75f;
+        } else if(Days.daysBetween(fechaActual, fechaVuelo).getDays() > 7){
+            descuentoTarifaBaseFecha = tarifaBase*.85f;
+        }
+        
+        if (edad < 25){
+            descuentoTarifaBaseEdad = tarifaBase*.7f;
+        } else if (edad > 65){
+            descuentoTarifaBaseEdad = tarifaBase*.6f;
         }        
         
-        if (descuentoTarifaBaseFecha>descuentoTarifaBaseEdad){
+        if (descuentoTarifaBaseFecha < descuentoTarifaBaseEdad){
             return descuentoTarifaBaseFecha;
-        }
-        else{
+        } else {
             return descuentoTarifaBaseEdad;
         }
         
